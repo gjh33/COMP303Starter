@@ -1,12 +1,14 @@
 package labtest01;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * Represents the inventory of a 
  * physical grocery store.
  */
-public class Inventory
+public class Inventory implements Iterable<Item>
 {
 	private final String aName; // Unique
 	private final HashMap<Item, Integer> aInventory = new HashMap<>();
@@ -74,5 +76,11 @@ public class Inventory
 		{
 			return 0;
 		}
+	}
+
+	@Override
+	public Iterator<Item> iterator()
+	{
+		return aInventory.keySet().iterator();
 	}
 }
